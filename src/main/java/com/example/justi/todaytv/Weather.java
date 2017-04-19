@@ -25,12 +25,13 @@ class Weather {
         this.zip=zip;
     }
 
-    void getAPI(){
+    String getApiUrl(){
         String urlString = baseURL + zip.toString() + ".json";
 
         System.out.println(urlString);
 
-        HttpURLConnection urlConnection;
+        return urlString;
+        /*HttpURLConnection urlConnection;
         URL url;
         JSONObject object = null;
 
@@ -51,7 +52,10 @@ class Weather {
             bReader.close();
             inStream.close();
             urlConnection.disconnect();
+
+            System.out.println(object.toString());
             //object = (JSONObject) new JSONTokener(response).nextValue();
+            //String city = object.getString("city");
         }
         catch (Exception e)
         {
@@ -59,6 +63,7 @@ class Weather {
         }
 
         //return (object);
+        */
     }
 
 
