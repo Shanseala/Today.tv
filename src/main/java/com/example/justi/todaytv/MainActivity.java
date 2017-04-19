@@ -29,11 +29,12 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Weather weather = new Weather(57069);
     }
 
     public static void main(String[] args) {
         Weather weather = new Weather(57069);
+        weather.getAPI();
 
     }
 }
