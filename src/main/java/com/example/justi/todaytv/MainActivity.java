@@ -34,7 +34,10 @@ public class MainActivity extends Activity {
 
     public static void main(String[] args) {
         Weather weather = new Weather(57069);
-        weather.getApiUrl();
+        WeatherFetch weatherFetch =
+                new WeatherFetch(weather.getApiUrl());
+        System.out.println(weatherFetch.getJSON().toString());
+
 
     }
 }

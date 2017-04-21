@@ -2,24 +2,32 @@ package com.example.justi.todaytv;
 /*
  * Created by JMunyer on 4/19/2017 for Today.tv.
  */
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
-import android.content.Context;
-import android.util.Log;
-
 public class WeatherFetch {
     private String urlString;
+
+
 
     public WeatherFetch(String urlString) {
         this.urlString = urlString;
     }
 
-    public JSONObject getJSON() {
+    public void Fetch(){
+
+    }
+
+
+    /*public JSONObject getJSON() {
         try {
             URL url = new URL(urlString);
             HttpURLConnection connection =
@@ -45,6 +53,7 @@ public class WeatherFetch {
             e.printStackTrace();
             return null;
         }
-    }
+
+    }*/
 }
 
