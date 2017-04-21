@@ -12,10 +12,14 @@
  * the License.
  */
 
-package com.example.justi.todaytv;
+package com.punbear.todaytv;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.example.justi.todaytv.R;
+import com.punbear.todaytv.Weather;
+import com.punbear.todaytv.WeatherFetch;
 
 /*
  * MainActivity class that loads MainFragment
@@ -36,7 +40,7 @@ public class MainActivity extends Activity {
         Weather weather = new Weather(57069);
         WeatherFetch weatherFetch =
                 new WeatherFetch(weather.getApiUrl());
-        System.out.println(weatherFetch.getJSON().toString());
+        //System.out.println(weatherFetch.getJSON().toString());
 
 
     }

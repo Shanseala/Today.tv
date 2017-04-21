@@ -1,4 +1,4 @@
-package com.example.justi.todaytv;
+package com.punbear.todaytv;
 /*
  * Created by JMunyer on 4/19/2017 for Today.tv.
  */
@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.justi.todaytv.R;
 
 import org.json.JSONObject;
 
@@ -23,7 +25,29 @@ public class WeatherFetch {
     }
 
     public void Fetch(){
+        final TextView mTxtDisplay;
+        ImageView mImageView;
+        mTxtDisplay = (TextView) findViewById(R.id.txtDisplay);
+        String url = "http://my-json-feed";
 
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        mTxtDisplay.setText("Response: " + response.toString());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
+
+// Access the RequestQueue through your singleton class.
+        AppController.getInstance(this).addToRequestQueue(jsObjRequest);
     }
 
 

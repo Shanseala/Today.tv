@@ -1,4 +1,4 @@
-package com.example.justi.todaytv;
+package com.punbear.todaytv;
 
 import android.net.Uri;
 
