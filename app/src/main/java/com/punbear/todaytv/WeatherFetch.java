@@ -4,6 +4,7 @@ package com.punbear.todaytv;
  */
 
 
+import android.app.Activity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import com.example.justi.todaytv.R;
 
 import org.json.JSONObject;
 
-public class WeatherFetch {
+public class WeatherFetch extends Activity{
     private String urlString;
 
 
@@ -24,18 +25,21 @@ public class WeatherFetch {
         this.urlString = urlString;
     }
 
-    public void Fetch(){
+    public void fetch(){
         final TextView mTxtDisplay;
         ImageView mImageView;
-        mTxtDisplay = (TextView) findViewById(R.id.txtDisplay);
-        String url = "http://my-json-feed";
+        //mTxtDisplay = (TextView) findViewById(R.id.txtDisplay);
+        //String url = "http://my-json-feed";
+
+        System.out.println(urlString);
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                (Request.Method.GET, urlString, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        mTxtDisplay.setText("Response: " + response.toString());
+                        //mTxtDisplay.setText("Response: " + response.toString());
+                        System.out.println(response.toString());
                     }
                 }, new Response.ErrorListener() {
 
@@ -50,34 +54,5 @@ public class WeatherFetch {
         AppController.getInstance(this).addToRequestQueue(jsObjRequest);
     }
 
-
-    /*public JSONObject getJSON() {
-        try {
-            URL url = new URL(urlString);
-            HttpURLConnection connection =
-                    (HttpURLConnection) url.openConnection();
-
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
-
-            StringBuilder json = new StringBuilder(1024);
-            String tmp;
-            while ((tmp = reader.readLine()) != null) {
-                json.append(tmp).append("\n");
-            }
-            reader.close();
-
-            JSONObject data = new JSONObject(json.toString());
-
-            if (data.getInt("cod") != 200) {
-                return null;
-            }
-            return data;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-
-    }*/
 }
 
