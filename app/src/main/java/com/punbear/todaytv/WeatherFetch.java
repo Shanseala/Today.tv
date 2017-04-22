@@ -9,20 +9,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.justi.todaytv.R;
 
 import org.json.JSONObject;
 
 public class WeatherFetch extends Activity{
     private String urlString;
-
+    RequestQueue mRequestQueue;
 
 
     public WeatherFetch(String urlString) {
         this.urlString = urlString;
+        mRequestQueue = Volley.newRequestQueue(this);
     }
 
     public void fetch(){
@@ -51,7 +54,9 @@ public class WeatherFetch extends Activity{
                 });
 
 // Access the RequestQueue through your singleton class.
-        AppController.getInstance(this).addToRequestQueue(jsObjRequest);
+        //AppController.getInstance(this).addToRequestQueue(jsObjRequest);
+
+        mRequestQueue.add(jsObjRequest);
     }
 
 }

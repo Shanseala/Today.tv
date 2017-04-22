@@ -16,13 +16,26 @@ import com.android.volley.toolbox.Volley;
  */
 
 
-class AppController extends Application{
+public class AppController extends Application{
     public static final String TAG = AppController.class.getSimpleName();
 
     private static AppController mInstance;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
-    private Context mCtx;
+    private static Context mCtx;
+
+    @Override
+    public void onCreate(){
+        super.onCreate();
+        mInstance = this;
+    }
+
+    //If I don't have this here, AndroidManifest.xml goes crazy about it not having a default constructor.  However, as I do have it
+    //stuff instantiates without a context which causes nullpointerexceptions.  In interest of time, reworking the app to remove use
+    //of singleton
+    public AppController(){
+
+    }
 
     private AppController(Context context) {
         mCtx = context;
