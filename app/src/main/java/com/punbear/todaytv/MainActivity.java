@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         Weather weather = new Weather(57069);
         WeatherFetch weatherFetch =
                 new WeatherFetch(weather.getApiUrl());

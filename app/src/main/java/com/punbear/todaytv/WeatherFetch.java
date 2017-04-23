@@ -25,10 +25,11 @@ public class WeatherFetch extends Activity{
 
     public WeatherFetch(String urlString) {
         this.urlString = urlString;
-        mRequestQueue = Volley.newRequestQueue(this);
+
     }
 
     public void fetch(){
+
         final TextView mTxtDisplay;
         ImageView mImageView;
         //mTxtDisplay = (TextView) findViewById(R.id.txtDisplay);
@@ -55,7 +56,7 @@ public class WeatherFetch extends Activity{
 
 // Access the RequestQueue through your singleton class.
         //AppController.getInstance(this).addToRequestQueue(jsObjRequest);
-
+        mRequestQueue = Volley.newRequestQueue(this.getApplicationContext());
         mRequestQueue.add(jsObjRequest);
     }
 
